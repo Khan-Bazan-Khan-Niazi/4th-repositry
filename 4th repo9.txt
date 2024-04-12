@@ -1,0 +1,52 @@
+#include<iostream>
+using namespace std;
+
+class realimg;
+void sumup(realimg &o1, realimg &o2);
+
+class realimg
+{
+	protected:
+		int real, img;
+		
+	friend void sumup(realimg &o1, realimg &o2);
+	public:
+	void setnumbers ()
+	{
+		cout<<"\nEnter real: ";
+		cin>>real;
+		cout<<"Enter imaginary: ";
+		cin>>img;
+		}	
+	
+	void result()
+	{
+		cout<<"\nReal = "<<real<<endl;
+		cout<<"Imaginary = "<<img<<"i"<<endl;
+		cout<<"Complex = "<<real<<" + "<<img<<"i\n";
+	}
+};
+
+
+void sumup(realimg &o1, realimg &o2)
+{
+	int r = o1.real + o2.real;   
+	int i = o1.img + o2.img;
+	
+	cout<<"\nSum of real and imaginary = "<<r<<" + "<<i<<"i"<<endl;
+	
+}
+
+int main ()
+{
+	realimg r1, r2;
+	r1.setnumbers();
+	r1.result();	
+	
+	r2.setnumbers();
+	r2.result();
+	
+	
+    sumup(r1, r2);
+	return 0;
+}
